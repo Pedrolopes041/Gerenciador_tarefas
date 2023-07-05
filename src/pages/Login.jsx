@@ -1,17 +1,18 @@
 import "./Login.scss";
-import logo from "../assets/images/logo-2.png"
+import logo from "../assets/images/logo-2.png";
 
 import CustomButton from "../components/CustomButton";
 
 import { useNavigate } from "react-router-dom";
 
+import Spline from "@splinetool/react-spline";
+
 const Login = () => {
     const navigate = useNavigate();
 
     const handleHomeClick = () => {
-        navigate("/")
-
-    }
+        navigate("/login");
+    };
 
     return (
         <div className="login-container">
@@ -20,8 +21,7 @@ const Login = () => {
                 <CustomButton onClick={handleHomeClick}>Entrar</CustomButton>
             </div>
         </div>
-
-    )
-}
+    );
+};
 
 export default Login;

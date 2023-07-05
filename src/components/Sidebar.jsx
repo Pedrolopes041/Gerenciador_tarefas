@@ -1,7 +1,7 @@
-import "./Sidebar.scss"
+import "./Sidebar.scss";
 
-import CustomButton from "./CustomButton"
-import logo from "../assets/images/logo.png"
+import CustomButton from "./CustomButton";
+import logo from "../assets/images/logo.png";
 
 import { useNavigate } from "react-router-dom";
 
@@ -9,8 +9,8 @@ const Sidebar = () => {
     const navigate = useNavigate();
 
     const handleLoginClick = () => {
-        navigate("/login");
-    }
+        navigate("/");
+    };
     return (
         <div className="sidebar-container">
             <div className="logo">
@@ -20,7 +20,7 @@ const Sidebar = () => {
                 <CustomButton onClick={handleLoginClick}>Sair</CustomButton>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default Sidebar;

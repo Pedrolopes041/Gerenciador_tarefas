@@ -18,7 +18,7 @@ const Task = () => {
                 `${process.env.REACT_APP_API_URL}/tasks`
             );
 
-            setTasks(data);
+            console.log(data).setTasks(data);
         } catch (_error) {
             alert.error("Não foi possivel recuperar as tarefas");
         }
