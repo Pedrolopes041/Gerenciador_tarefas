@@ -8,10 +8,10 @@ import "./App.scss";
 const App = () => {
 
     return (
-      <Routes>
-        <Route path="/login" element={<Home/>}/> login
-        <Route path="/" element={<Login/>}/> home
-      </Routes>
+        <Routes>
+            <Route path="/" element={<Login />} /> login
+            <Route path="/home" element={<Home />} /> home
+        </Routes>
     );
 };
 
