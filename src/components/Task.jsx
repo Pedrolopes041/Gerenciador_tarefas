@@ -38,8 +38,6 @@ const Task = () => {
 
     return (
         <div className="tasks-container">
-            <h2>Minhas Tarefas</h2>
-
             <div className="last-tasks">
                 <h3>Últimas Tarefas</h3>
                 <AddTask fetchTasks={fetchTasks} />
