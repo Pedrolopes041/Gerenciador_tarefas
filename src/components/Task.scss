@@ -1,10 +1,11 @@
 .tasks-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
     padding: 60px 85px;
     height: 100vh;
-    overflow-y: hidden;
+    width: 100%;
 
     @media (max-width: 1024px) {
         flex-direction: column;
@@ -25,7 +26,8 @@
         background-color: #ffffff;
         border-radius: 12px;
         padding: 20px;
-        width: 400px;
+        width: 100%;
+        max-height: 60vh;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease, box-shadow 0.3s ease;
 
@@ -48,8 +50,6 @@
         }
 
         .tasks-list {
-            overflow-y: auto;
-            max-height: 55vh;
             padding-right: 10px;
             margin-top: 20px;
 
@@ -82,6 +82,35 @@
 
         &.last-tasks {
             margin-right: 10px;
+            overflow-y: auto;
+            max-height: 60vh;
+
+            // Estilizando a scrollbar
+            &::-webkit-scrollbar {
+                width: 8px;
+                /* Largura da scrollbar */
+                background-color: #f1f1f1;
+                /* Cor de fundo da scrollbar */
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #5836f7;
+                /* Cor do 'thumb' (parte que desliza) */
+                border-radius: 10px;
+                /* Bordas arredondadas para o 'thumb' */
+            }
+
+            &::-webkit-scrollbar-thumb:hover {
+                background-color: #5836f7;
+                /* Cor do 'thumb' ao passar o mouse */
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: #f1f1f1;
+                /* Cor do 'track' (parte onde o thumb se move) */
+                border-radius: 10px;
+                /* Bordas arredondadas para o track */
+            }
 
             .add-task-btn {
                 background-color: #5836f7;
@@ -98,5 +127,54 @@
                 }
             }
         }
+
+        &.completed-tasks {
+            margin-right: 10px;
+            overflow-y: auto;
+            max-height: 60vh;
+
+            // Estilizando a scrollbar
+            &::-webkit-scrollbar {
+                width: 8px;
+                /* Largura da scrollbar */
+                background-color: #f1f1f1;
+                /* Cor de fundo da scrollbar */
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background-color: #5836f7;
+                /* Cor do 'thumb' (parte que desliza) */
+                border-radius: 10px;
+                /* Bordas arredondadas para o 'thumb' */
+            }
+
+            &::-webkit-scrollbar-thumb:hover {
+                background-color: #5836f7;
+                /* Cor do 'thumb' ao passar o mouse */
+            }
+
+            &::-webkit-scrollbar-track {
+                background-color: #f1f1f1;
+                /* Cor do 'track' (parte onde o thumb se move) */
+                border-radius: 10px;
+                /* Bordas arredondadas para o track */
+            }
+
+            .add-task-btn {
+                background-color: #5836f7;
+                color: #fff;
+                padding: 10px 20px;
+                border-radius: 8px;
+                border: none;
+                cursor: pointer;
+                margin-bottom: 20px;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: #4530c4;
+                }
+            }
+        }
+
     }
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
-import { useAlert } from "react-alert";
+import { toast } from "react-toastify";
 
 import "./Task.scss";
 
@@ -10,8 +10,6 @@ import AddTask from "./Addtask";
 const Task = () => {
     const [tasks, setTasks] = useState([]);
 
-    const alert = useAlert();
-
     const fetchTasks = async () => {
         try {
             const { data } = await axios.get(
@@ -20,7 +18,7 @@ const Task = () => {
 
             setTasks(data);
         } catch (_error) {
-            alert.error("Não foi possivel recuperar as tarefas");
+            toast.error("Não foi possível recuperar as tarefas");
         }
     };
 
@@ -44,7 +42,7 @@ const Task = () => {
                 <div className="tasks-list">
                     {lastTask.map((lastTask) => (
                         <TaskItem
-                            key={lastTask._id}
+                            key={lastTask.id}
                             task={lastTask}
                             fetchTasks={fetchTasks}
                         />
@@ -57,7 +55,7 @@ const Task = () => {
                 <div className="tasks-list">
                     {completedTask.map((completedTask) => (
                         <TaskItem
-                            key={completedTask._id}
+                            key={completedTask.id}
                             task={completedTask}
                             fetchTasks={fetchTasks}
                         />

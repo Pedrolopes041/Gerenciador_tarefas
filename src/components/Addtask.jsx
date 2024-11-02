@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import axios from "axios";
-import { useAlert } from "react-alert";
+import { toast } from "react-toastify";
 
 import CustomInput from "./CustomInput";
 import CustomButton from "./CustomButton";
@@ -11,8 +11,6 @@ import "./Addtask.scss";
 const AddTask = ({ fetchTasks }) => {
     const [task, setTask] = useState("");
 
-    const alert = useAlert();
-
     const onChange = (e) => {
         setTask(e.target.value);
     };
@@ -20,9 +18,7 @@ const AddTask = ({ fetchTasks }) => {
     const handleTaskAddition = async () => {
         try {
             if (task.length === 0) {
-                return alert.error(
-                    "A tarefa precisa de uma descrição para ser adicionada."
-                );
+                return toast.error("A tarefa precisa de uma descrição para ser adicionada.");
             }
 
             await axios.post(`${process.env.REACT_APP_API_URL}/tasks`, {
@@ -32,11 +28,11 @@ const AddTask = ({ fetchTasks }) => {
 
             await fetchTasks();
 
-            await alert.success("A tarefa foi adcionado com sucesso");
+            toast.success("A tarefa foi adicionada com sucesso");
 
             setTask("");
         } catch (_error) {
-            alert.error("Algo deu errado.");
+            toast.error("Algo deu errado.");
         }
     };
 

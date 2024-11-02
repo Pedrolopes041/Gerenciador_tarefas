@@ -1,36 +1,35 @@
 import { AiFillDelete } from "react-icons/ai";
 import axios from "axios";
-import { useAlert } from "react-alert";
+import { toast } from "react-toastify";
 
 import "./TaskItem.scss";
 
 const TaskItem = ({ task, fetchTasks }) => {
-    const alert = useAlert();
-
+    
     const handleTaskDeletion = async () => {
         try {
-            await axios.delete(`${process.env.REACT_APP_API_URL}/tasks/${task._id}`);
+            await axios.delete(`${process.env.REACT_APP_API_URL}/tasks/${task.id}`);
 
             await fetchTasks();
 
-            alert.success("A tarefa foi removida com sucesso!");
+            toast.success("A tarefa foi removida com sucesso!");
         } catch (_error) {
-            alert.error("Algo deu errado.");
+            toast.error("Algo deu errado.");
         }
     };
 
     const handleTaskCompleted = async(e) => {
         try {
-            await axios.patch(`${process.env.REACT_APP_API_URL}/tasks/${task._id}`, {
+            await axios.patch(`${process.env.REACT_APP_API_URL}/tasks/${task.id}`, {
                 isCompleted: e.target.checked,
             });
 
             await fetchTasks();
 
-            alert.success("Tarefa foi modificada com sucesso");
+            toast.success("Tarefa foi modificada com sucesso");
 
         } catch (_error) {
-            alert.error("Algo deu errado");
+            toast.error("Algo deu errado");
         }
     }
 
